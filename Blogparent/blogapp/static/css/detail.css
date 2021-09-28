@@ -84,6 +84,17 @@
     width: 60%;
     margin: 50px auto 0 auto;
 
+    justify-content: center;
+    text-align: center;
+
+}
+
+.youtube-title{
+    
+}
+
+.youtube-title-section a{
+    text-align: center;
 }
 .youtube-post{
 
@@ -110,7 +121,49 @@
     margin: 0;
 }
 
+.youtube-object p{
+    margin: 0;
+}
+
 iframe{
     width: 100%;
     height: 56.25%;
+}
+
+/*댓글*/
+.comment-section{
+    width: 100%;
+    margin: 0;
+   
+}
+
+.comments{
+    border: solid rgb(255, 0, 0) 1px;
+
+    width: 60%;
+    margin:0  auto 0 auto;
+
+}
+
+.comments a{
+    border: solid rgb(0, 0, 0) 1px;
+    border-radius: 2px;
+}
+
+.comment-object{
+    display: flex;
+
+    margin-bottom: 10px;
+
+}
+
+.comment-info{
+   
+}
+
+.comment-text{
+    border: solid rgb(0, 0, 0) 1px;
+    border-radius: 2px;
+    
+    width: 100%;
 }

@@ -80,7 +80,7 @@
         <img src="{% static 'img/baseimg.jpg'%}" width="720" height="420" alt="사진">
         <div class="infos">
           {%for notice in notices %}
-          <a>{{notice.notice_title}}{{notice.notice_pub_date}}</a>
+          <a href="{% url 'notice_board' notice.id %}">{{notice.notice_title}}{{notice.notice_pub_date}}</a>
           {% endfor %}
         </div>
       </div>
