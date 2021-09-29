@@ -79,7 +79,6 @@ def edit_comment(request, comment_id, blog_id):  #댓글 수정 페이지로 이
 
 def update_comment(request,comment_id): #댓글 수정하기
     comment_update = Comment.objects.get(id = comment_id)
-    comment_update.author_name = request.POST['author_name']
     comment_update.comment_text = request.POST['comment_text']
     comment_update.save()
     return redirect('home')

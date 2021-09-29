@@ -36,29 +36,29 @@
             <div class="big-post-content">
 
                <div class="big-post-content-1">
-                   ABOUT {{ blog.body }}
+                    <p><span>ABOUT    </span>{{ blog.body }}</p>
+
+                   <div class="hashtag">
+                    {% for hashtag in hashtags.all %}
+                    #{{ hashtag }}
+                    {% endfor %}
+                </div>
+
+                <div class="edit-buttons">
+                    {% if request.user == blog.author %}
+                    <a href="{% url 'edit' blog.id %}">EDIT</a>
+                    <a href="{% url 'delete' blog.id %}">DELETE</a>
+                    {% endif %}
+
+                    
+                </div>
                </div>
 
                <div class="big-post-content-2">
                   
-                    <div class="hashtag">
-                        {% for hashtag in hashtags.all %}
-                        #{{ hashtag }}
-                        {% endfor %}
-                    </div>
-
-                    <div class="edit-buttons">
-                        {% if request.user == blog.author %}
-                        <a href="{% url 'edit' blog.id %}">EDIT</a>
-                        <a href="{% url 'delete' blog.id %}">DELETE</a>
-                        {% endif %}
-
-                        
-                    </div>
                     
-                  
                     <div class="big-post-buttons">
-                        <div style="display: flex;"><i class="fab fa-twitter"></i>{% post_to_twitter "{{blog.author}}의 추천 영상! {{blog.title}}. ARCHIVE MD에서 바로 확인하기!" object_or_url "Twitter" %}</div>
+                        <div style="display: flex;"><i class="fab fa-twitter"></i>{% post_to_twitter "{{blog.author}}의 추천 영상! {{blog.title}}. ARCHIVE MD에서 바로 확인하기!" object_or_url "Post to Twitter" %}</div>
                         <div style="display: flex;"><i class="fab fa-facebook"></i>{% post_to_facebook "{{blog.author}}의 추천 영상! {{blog.title}}. ARCHIVE MD에서 바로 확인하기!" object_or_url "???" %}</div>
                         <div style="display: flex;"><i class="fab fa-google"></i>{% post_to_gplus "{{blog.author}}의 추천 영상! {{blog.title}}. ARCHIVE MD에서 바로 확인하기!" object_or_url "Google+" %}</div>
                     </div>
@@ -113,7 +113,7 @@
 
         <div class="comments">
 
-            <div>
+            <div class="add-comment-button">
                 {% if not user.is_authenticated %}
                 <a href="{% url 'login' %}">로그인 후 댓글 달기</a>
                 {% endif %}

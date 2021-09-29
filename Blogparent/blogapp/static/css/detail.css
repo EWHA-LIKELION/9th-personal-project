@@ -4,6 +4,7 @@
 
 .big-post-section{
     width: 100%;
+
 }
 
 .big-post{
@@ -14,7 +15,7 @@
     width: 60%;
     height: auto;
 
-    margin: 50px auto 0 auto;
+    margin: 50px auto 50px auto;
 }
 
 .big-post-info{
@@ -53,30 +54,40 @@
 
 .big-post-content{
     display: flex;
+    margin-top: 5px;
 }
 
 .big-post-content-1{
-    width: 50%;
-    border: solid black 1px;
+    width: 75%;
+    margin-right: 50px;
+    /* border: solid black 1px; */
     
-
 }
+
+.big-post-content-1 p{
+    margin: 0;
+}
+
 
 .big-post-content-2{
-    width: 50%;
-    border: solid rgb(255, 0, 0) 1px;
-    color: red;
+    
     text-decoration: none;
+
 }
 
-.big-post-content-2 a{
-    color: red;
+.fab{
+    vertical-align:middle;
+    line-height: 21px;
+    text-align:center;
+    
 }
 
 /*d*/
 .youtube-section{
     background-color:#E7E5DD;
     width: 100%;
+
+    padding: 5px 0 30px 0;
 }
 
 .youtube-title-section{
@@ -145,6 +156,9 @@ iframe{
 
 }
 
+.add-comment-button{
+    margin-top: 30px;
+}
 .comments a{
     border: solid rgb(0, 0, 0) 1px;
     border-radius: 2px;
@@ -153,7 +167,8 @@ iframe{
 .comment-object{
     display: flex;
 
-    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
 }
 

@@ -113,7 +113,7 @@
         <div style="display: flex;  ">
           <p style="margin: 0;">{{popular_blog.title}}</p>
         </div>
-        <p style="margin: 0;">by {{popular_blog.author}} | {{ popular_blog.like_count }}</p>
+        <p style="margin: 0;">by {{popular_blog.author}} | <i class="fas fa-heart"></i> {{ popular_blog.like_count }}</p>
       </div>
       {% endfor %}    
 
@@ -141,7 +141,7 @@
               
               </div>
               
-              <p style="margin: 0;">by {{blog.author}} | {{blog.like.count}}</p>
+              <p style="margin: 0;">by {{blog.author}} | <i class="fas fa-heart"></i> {{blog.like.count}}</p>
           </div>
       {% endfor %}
 
