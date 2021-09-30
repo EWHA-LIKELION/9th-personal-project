@@ -9,13 +9,31 @@
      <link rel="stylesheet" href="{% static 'css/component.css'%}" type="text/css">
      <link rel="stylesheet" href="{% static 'css/detail.css'%}" type="text/css">
      <link rel="stylesheet" href="{% static 'css/mypage.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/modal.css'%}" type="text/css">
      <!--폰트어썸-->
      <script src="https://kit.fontawesome.com/1b24a1a7da.js" crossorigin="anonymous"></script> 
+     <!--모달js-->
+     <script src ="/static/js/modal.js" defer></script>
+     
      <!-- 좋아요 관련 js -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
      <title>Document</title>
 </head>
 <body>
+  
+  <div id="modal" class="modal-overlay">
+      <div class="modal-window">
+          <div class="title">
+              <h2>How to Use?</h2>
+          </div>
+          <div class="close-area">X</div>
+          <div class="content">
+              <p>가나다라마바사 아자차카타파하</p>
+             
+              
+          </div>
+      </div>
+  </div>
 
     <div class="side-header">
 
@@ -65,10 +83,11 @@
         <div class="container">
 
             <div class="upper-header">
-        
+             
+              
               <a class="search-button" href="{% url 'video_list' %}">Search<i class="fas fa-search" style="margin-left:5px;"></i></a>
         
-              <a class="how-to-use">
+              <a id="btn-modal" class="how-to-use">
                 How to use
               </a>
         
@@ -104,8 +123,9 @@
         
         
         </div>
-
+        
         <script type="text/javascript">
+       
             function post_like(id) {
                 console.log("hi")
                 $.ajax({
@@ -121,6 +141,8 @@
                     }
                 })
             }
+
         </script>
+     
 </body>
 </html>
