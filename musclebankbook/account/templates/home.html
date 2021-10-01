@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/calender.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="calender">
+            <div class="header" >
+                <h2 class="year-month" ></h2>
+            </div>
+                <!--<div class="nav">
+                    <button class="nav-btn go-prev" >&lt;</button>
+                    <button class="nav-btn go-todau" >Today</button>
+                    <button class="nav-btn go-next">&gt;</button>
+                </div>-->
+            <div class="date_item rap">
+                <div class="gird date_form date_head">
+                    <div class="day">Sun</div>
+                    <div class="day">Mon</div>
+                    <div class="day">Tues</div>
+                    <div class="day">Wed</div>
+                    <div class="day">Thur</div>
+                    <div class="day">Fri</div>
+                    <div class="day">Sat</div>
+                </div>
+                <div class="grid date_form dateSel1"></div> 
+            </div>
+            {% if not user.is_authenticated %}
+            <div class="healthppl">
+                <h1>근력통장</h1>
+                <img src="../static/icon/icons8-데-드리프트.gif" alt="" class="img">
+                <img src="../static/icon/icons8-미국-달러.gif" alt="" class="img">
+            </div>
+            {% endif %}
+            <div>
+            {% if user.is_authenticated %}
+               <a href="{% url 'showrecord' %}">record</a>
+            {% endif %}
+            <div class="underbar">
+                    {% if not user.is_authenticated %}
+                    <a class="login" href="{% url 'login' %}">Login</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <a class="login" href="{% url 'logout' %}">Logout</a>
+                    {% endif %} 
+                    {% if not user.is_authenticated %}
+                    <a class="signup" href="{% url 'register' %}">Signup</a>
+                    {% endif %}
+            </div>
+           
+            
+        </div>
+    </div>
+    <script src="../static/js/home.js"></script>
+</body>
+</html>

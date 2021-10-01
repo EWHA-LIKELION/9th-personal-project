@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../account/static/css/home.css?ver=1">
+    <link rel="stylesheet" type="text/css" href="../../account/static/css/calender.css?ver=1">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="calender">
+            <div class="header" >
+                <h2 class="year-month" ></h2>
+            </div>
+            <div class="date_item rap">
+                <div class="gird date_form date_head">
+                    <div class="day">Sun</div>
+                    <div class="day">Mon</div>
+                    <div class="day">Tues</div>
+                    <div class="day">Wed</div>
+                    <div class="day">Thur</div>
+                    <div class="day">Fri</div>
+                    <div class="day">Sat</div>
+                </div>
+                <div class="grid date_form dateSel1"></div> 
+            </div>
+            <div class="show_record">
+                {% for post in posts.all %}
+                    <h1>{{ post.category }}</h1>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="../../account/static/js/home.js"></script>
+</body>
+</html>
