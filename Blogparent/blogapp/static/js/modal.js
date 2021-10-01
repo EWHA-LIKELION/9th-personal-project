@@ -1,5 +1,5 @@
 const modal = document.getElementById("modal")
-console.log(modal)
+
 function modalOn() {
     modal.style.display = "flex"
 }
@@ -12,7 +12,7 @@ function modalOff() {
     modal.style.display = "none"
 }
 
-modalOff()
+
 
 const btnModal = document.getElementById("btn-modal")
 btnModal.addEventListener("click", e => {

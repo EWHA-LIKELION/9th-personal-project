@@ -9,7 +9,9 @@
 
 .big-post{
 
-    border: solid black 1px;
+    border: solid rgb(187, 186, 180) 1px;
+    border-radius: 5px;
+
     padding: 20px;
     
     width: 60%;
@@ -42,13 +44,13 @@
     
 }
 .like_count{
-    color: red;
+    color: rgb(223, 98, 98);
     text-align: middle;
     
 }
 
 .fa-heart{
-    color: red;
+    color: rgb(223, 98, 98);
 
 }
 
@@ -106,7 +108,9 @@
 }
 .youtube-post{
 
-    border: solid black 1px;
+   border: solid rgb(187, 186, 180) 1px;
+    border-radius: 5px;
+    
     padding: 20px;
     
     width: 60%;
@@ -174,8 +178,9 @@ iframe{
 }
 
 .comment-text{
-    border: solid rgb(0, 0, 0) 1px;
+    border: solid rgb(187, 186, 180) 1px;
     border-radius: 2px;
-    
+    padding:3px;
+    margin-left: 5px;
     width: 100%;
 }

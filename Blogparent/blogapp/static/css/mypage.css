@@ -1,7 +1,9 @@
 .section{
     width: 60%;
-    margin: 50px auto 0 auto;
-    border: solid black 1px;
+    margin: 50px auto 50px auto;
+
+
+    
 }
 
 .profile-title{
@@ -12,23 +14,11 @@
 
 h1{
     font-size: 40px;
+    margin-bottom: 10px;
 }
 h2{
     margin: 30px 0 0 0;
     font-size: 30px;
-}
-
-.profile-title a{ /*프로필 수정 버튼*/
-    height: auto;
-    line-height: 40px;
-    color: black;
-
-    border: solid black 1px;
-    border-radius: 20px;
-
-  
-
-    margin: 5px 10px 5px 10px;
 }
 
 .profile-box-section{
@@ -39,7 +29,7 @@ h2{
 
 .profile-box{
     
-    border: solid black 1px;
+    border: solid rgb(187, 186, 180) 2px;
     border-radius: 10px;
 
     width: 200px;
@@ -55,10 +45,16 @@ h2{
     justify-content: center;
 }
 
+.profile-box:hover{
+   
+    box-shadow: 0px 0px 3px 2px rgb(224, 222, 215,0.5);
+}
+
 
 .profile-box p{
     text-align: center;
     margin: 3px;
+    color: #5C3471;
 }
 
 .key{
@@ -70,14 +66,17 @@ h2{
 }
 /*내가 쓴 글*/
 .my-post-section{
-    border: solid black 1px;
+    border: solid rgb(187, 186, 180) 2px;
+    border-radius: 5px;
     padding:10px;
 
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .post-values{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    font-size: large;
+    font-weight: bold;
 }
 
 
@@ -100,21 +99,27 @@ h2{
 
 
 .my-post-object:hover {
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(224, 222, 215,0.5);
     
 }
 
 /*좋아요*/
 
 .like-post-section{
-    border: solid black 1px;
+    border: solid rgb(187, 186, 180) 2px;
+    border-radius: 5px;
+
     padding:10px;
+
+    margin-top: 20px;
 }
 
 
 .like-post-values{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    font-size: large;
+    font-weight: bold;
 }
 
 .like-post-values p{
@@ -136,9 +141,7 @@ justify-self: center;
 }
 
 
-
-
 .like-post-object:hover {
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(224, 222, 215,0.5);
     
 }

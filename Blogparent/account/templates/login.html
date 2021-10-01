@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% load static%}
 {% block content %}
-<h1>Login</h1>
+
+<div class="login-section">
+    <h1>Login</h1>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         {{ form.as_p}}
-        <button type="submit">제출</button>
+        <button type="submit">Submit</button>
     </form>
-
+</div>
 {% endblock%}
 
 

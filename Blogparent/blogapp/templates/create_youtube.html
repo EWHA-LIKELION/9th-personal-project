@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% load static%}
     {% block content%}
-    <h3>영상 추가하기 </h3>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <button type="submit">Send</button>
-    </form>
+
+    <div class="create-youtube-section">
+        <h1>Add Video </h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     {% endblock %}
    

@@ -17,7 +17,7 @@ class Blog(models.Model): #큰 글
     body =models.TextField()
     hashtag = models.ManyToManyField(HashTag) #해시태그
     like = models.ManyToManyField(CustomUser, related_name='likes',blank=True)
-    cover_image= models.ImageField(upload_to='images/', blank=True)
+    cover_image= models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return self.title

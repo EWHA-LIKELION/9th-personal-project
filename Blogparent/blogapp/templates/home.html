@@ -12,11 +12,14 @@
         </div>
       </div>
 
+      <!-- <div class="info-3">
+        <p>s</p>
+
+       </div> -->
+
       <div class="info-2">
-       <p>Devstars Web</p>
-       <p>Deverlopment</p>
-       <p>By Dayun</p>
-       <p>Incheon, Korea</p>
+       <p>Archive MD Develropment</p>
+       <p>By Dayun | Incheon, Korea</p>
        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
       </div>
     </div> 
@@ -40,12 +43,11 @@
         <div style="display: flex;  ">
           <p style="margin: 0;">{{popular_blog.title}}</p>
         </div>
-        <p style="margin: 0;">by {{popular_blog.author}} | <i class="fas fa-heart"></i> {{ popular_blog.like_count }}</p>
+        <p style="margin: 0;">by {{popular_blog.author}} | <i class="fas fa-heart"></i> <span style="color: rgb(223, 98, 98);">{{ popular_blog.like_count }}</span> </p>
       </div>
       {% endfor %}    
 
-    </div><!--인기글 섹션-->
-
+    </div>
     <div class="insert-box">
 
     </div>
@@ -68,7 +70,7 @@
               
               </div>
               
-              <p style="margin: 0;">by {{blog.author}} | <i class="fas fa-heart"></i> {{blog.like.count}}</p>
+              <p style="margin: 0;">by {{blog.author}} | <i class="fas fa-heart"></i> <span style="color: rgb(223, 98, 98);">{{blog.like.count}}</span></p>
           </div>
       {% endfor %}
 

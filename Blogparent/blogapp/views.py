@@ -32,7 +32,7 @@ def create(request):
     new_blog.author = request.user
     new_blog.title = request.POST['title']
     new_blog.body=request.POST['body']
-    new_blog.cover_image = request.FILES['cover_image']
+    new_blog.cover_image = request.FILES.get('cover_image')
     new_blog.save()
     hashtags = request.POST['hashtags']
     hashtag = hashtags.split(",")

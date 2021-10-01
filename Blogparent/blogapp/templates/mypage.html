@@ -13,7 +13,7 @@
     <div class="profile-box-section">
         <a  class="profile-box" href="{% url 'edit_user_info' %}"><p class="key">id</p> <p  class="value">{{ user.username }}</p></a>
         <a  class="profile-box" href="{% url 'edit_user_info' %}"><p class="key">nickname</p> <p  class="value">{{ user.nickname }}</p></a>
-        <a  class="profile-box" href="{% url 'edit_user_info' %}"><p class="key">gender</p> <p  class="value">{{ user.university }}</p></a>
+        <a  class="profile-box" href="{% url 'edit_user_info' %}"><p class="key">gender</p> <p  class="value">{{ user.gender }}</p></a>
         <a  class="profile-box" href="{% url 'edit_user_info' %}"><p class="key">location</p> <p  class="value">{{ user.location }}</p></a>
     </div>
     
@@ -26,9 +26,9 @@
     <div class="my-post-section">
         
         <div class="post-values">
-            <p>title</p>
-            <p>body</p>
-            <p>date</p>
+            <p>Title</p>
+            <p>Text</p>
+            <p>Date</p>
         </div> 
         
         {% for myblog in myblogs.all %}
@@ -49,9 +49,9 @@
     <div class="like-post-section">
 
         <div class="like-post-values">
-            <p>title</p>
-            <p>body</p>
-            <p>date</p>
+            <p>Title</p>
+            <p>Text</p>
+            <p>Date</p>
         </div> 
 
         {% for liked_blog in liked_blogs.all %}

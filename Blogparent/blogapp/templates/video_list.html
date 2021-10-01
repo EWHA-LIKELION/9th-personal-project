@@ -3,25 +3,36 @@
 
 
 {% block content %}
-    <form action="" method='GET'>
+
+<div class="search-section">
+
+    <form class="search-form" action="" method='GET'>
         <div class="row" style="margin-bottom:15px;">
             <div class="col-lg-5">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="search_key" value="{{ search_key }}"
-                        placeholder="looking for...">
+
+                    <input id="input1" type="text" class="form-control" name="search_key" value="{{ search_key }}"
+                        placeholder="Looking for....">
+
                     <span class="input-group-btn">
-                        <input class="btn btn-default" type="submit" value="Search">
+                        <input id="input2" class="btn btn-default" type="submit" value="Search">
                     </span>
+
                 </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
     </form>
-    
+
+    <div class="searched-post-section">
             {% for video in video_list %}
-            <a href="/blog/{{ video.id }}">
+            <a class="searched-post" href="/blog/{{ video.id }}">
                 <h4>{{ video.title }}</h4>
             </a>
             
             {% endfor %}
+    </div>
+            
+
+</div>
        
 {% endblock %}
