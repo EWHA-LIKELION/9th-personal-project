@@ -32,6 +32,9 @@ AUTH_USER_MODEL = 'account.CustomUser'
 
 # Application definition
 
+
+LOGIN_URL = 'http://127.0.0.1:8000/account/login'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

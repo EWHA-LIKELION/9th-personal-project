@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse,JsonResponse
 import json
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -22,10 +23,12 @@ def detail(request, blog_id):
     blog_hashtag = blog_detail.hashtag.all()
     return render(request, 'detail.html', {'blog':blog_detail, 'hashtags':blog_hashtag})
 
+@login_required
 def new(request):
     blogform = BlogForm()                           
     return render(request, 'new.html', {'form':blogform})
 
+@login_required
 def create(request):
     new_blog = Blog()
     new_blog.pub_date = timezone.now()
@@ -42,10 +45,13 @@ def create(request):
     return redirect('detail', new_blog.id) 
   
 
+@login_required
 def edit(request, blog_id):
     blog_detail = get_object_or_404(Blog, pk=blog_id)
     return render(request, 'edit.html', {'blog' : blog_detail})
 
+
+@login_required
 def update(request, blog_id):
     blog_update = get_object_or_404(Blog, pk=blog_id)
     blog_update.title = request.POST['title']
@@ -53,12 +59,15 @@ def update(request, blog_id):
     blog_update.save()
     return redirect('home')
 
+
+@login_required
 def delete(request, blog_id):
     blog_delete = get_object_or_404(Blog, pk=blog_id)
     blog_delete.delete()
     return redirect('home')
 
 
+@login_required
 def addCommentToPost(request, blog_id): #댓글
     blog = get_object_or_404(Blog, pk = blog_id)
     if request.method == "POST":
@@ -73,21 +82,27 @@ def addCommentToPost(request, blog_id): #댓글
         form = CommentForm()
     return render(request, 'add_comment_to_post.html',{'form':form})
 
+
+@login_required
 def edit_comment(request, comment_id, blog_id):  #댓글 수정 페이지로 이동
     comment = Comment.objects.get(id = comment_id)
     return render(request, 'edit_comment.html', {'comment' : comment})
 
+@login_required
 def update_comment(request,comment_id): #댓글 수정하기
     comment_update = Comment.objects.get(id = comment_id)
     comment_update.comment_text = request.POST['comment_text']
     comment_update.save()
     return redirect('home')
-    
+
+@login_required
 def delete_comment(request, blog_id, comment_id): #댓글 삭제하기
     comment_delete = Comment.objects.get(id = comment_id)
     comment_delete.delete()
     return redirect('detail', blog_id)
 
+
+@login_required
 def create_youtube(request, blog_id): #유튜브 게시글 추가
     blog = get_object_or_404(Blog, pk = blog_id)
     if request.method == "POST":
@@ -102,15 +117,18 @@ def create_youtube(request, blog_id): #유튜브 게시글 추가
     return render(request, 'create_youtube.html',{'form':form})
 
 
+@login_required
 def delete_youtube(request, blog_id, youtube_id): #영상 삭제하기
     youtube_delete = Youtube.objects.get(id = youtube_id)
     youtube_delete.delete()
     return redirect('detail', blog_id)
 
+@login_required
 def edit_youtube(request, youtube_id, blog_id):  #영상 수정 페이지로 이동
     youtube_detail = Youtube.objects.get(id = youtube_id)
     return render(request, 'edit_youtube.html', {'youtube' : youtube_detail})
 
+@login_required
 def update_youtube(request,youtube_id): #영상 수정하기
     youtube_update = Youtube.objects.get(id = youtube_id)
     youtube_update.subtitle = request.POST['subtitle']
@@ -129,6 +147,7 @@ def video_list(request):
     return render(request, 'video_list.html', {'video_list':video_list})
 
 
+@login_required
 def mypage(request):
     myblog = Blog.objects.filter(author = request.user)
     user = request.user
