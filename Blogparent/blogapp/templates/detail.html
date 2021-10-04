@@ -30,7 +30,7 @@
             {% if blog.cover_image %}
             <img src="{{blog.cover_image.url}}" width="800" height="440" alt="사진">
             {% else %} 
-            <img src="{% static 'img/baseimg.jpg'%}" width="320" height="180" alt="사진">
+            <img src="{% static 'img/baseimg.jpg'%}" width="800" height="440" alt="사진">
             {% endif %}
             
             <div class="big-post-content">
@@ -46,8 +46,8 @@
 
                 <div class="edit-buttons">
                     {% if request.user == blog.author %}
-                    <a href="{% url 'edit' blog.id %}">EDIT</a>
-                    <a href="{% url 'delete' blog.id %}">DELETE</a>
+                    <a id="bold" href="{% url 'edit' blog.id %}">EDIT</a>
+                    <a  id="dbold" href="{% url 'delete' blog.id %}">DELETE</a>
                     {% endif %}
 
                     
@@ -96,8 +96,8 @@
                         <p>{{ youtube.body }}</p>
         
                         {% if request.user == blog.author %}
-                        <a href="{% url 'edit_youtube' blog.id youtube.id %}">EDIT</a>
-                        <a href="{% url 'delete_youtube' blog.id youtube.id %}">DELETE</a>
+                        <a id="bold" href="{% url 'edit_youtube' blog.id youtube.id %}">EDIT</a>
+                        <a id="bold" href="{% url 'delete_youtube' blog.id youtube.id %}">DELETE</a>
                         {% endif %}
                     </div>
                 {% empty %}
@@ -113,20 +113,18 @@
         <div class="comments">
 
             <div class="add-comment-button">
-                {% if not user.is_authenticated %}
-                <a href="{% url 'login' %}">로그인 후 댓글 달기</a>
-                {% endif %}
+                
+               
     
-                {% if user.is_authenticated %}
-                <a href="{% url 'add_comment_to_post' blog.id %}">댓글달기</a>
-                {% endif %}
+                <a id="bold" class="comment-button" href="{% url 'add_comment_to_post' blog.id %}">ADD COMMENT</a>
+             
             </div>
 
             {% for comment in blog.comments.all %}
                 <div class="comment-object">
                         <div class="comment-info">
-                            <div>{{ comment.author_name }}</div> 
-                            <div>{{ comment.created_at }}</div>
+                            <div id="bold">{{ comment.author_name }}</div> 
+                            <div style="width: 100px; font-size: small;">{{ comment.created_at }}</div>
                             <div> {% if request.user == comment.author_name %}
                                 <a href="{% url 'edit_comment' blog.id comment.id %}">EDIT</a>
                                 <a href="{% url 'delete_comment' blog.id comment.id %}">DELETE</a>
