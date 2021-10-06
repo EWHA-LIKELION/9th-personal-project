@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -131,10 +132,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR, 'blogapp', 'Blogparent/blogapp/static')
+    os.path.join(BASE_DIR, 'blogapp', 'static')
 ]
 
-STATIC_ROOT=os.path.join(BASE_DIR, 'static')
+STATIC_ROOT=os.path.join(BASE_DIR, 'Blogparent/blogapp/static')
 
 #미디어 파일이 어디로 모일지
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -145,7 +146,6 @@ MEDIA_URL='/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age = 500)
