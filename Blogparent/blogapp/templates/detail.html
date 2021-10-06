@@ -30,13 +30,13 @@
             {% if blog.cover_image %}
             <img src="{{blog.cover_image.url}}" width="800" height="440" alt="사진">
             {% else %} 
-            <img src="{% static 'img/baseimg.jpg'%}" width="800" height="440" alt="사진">
+            <img src="{% static 'img/base.jpg'%}" width="800" height="440" alt="사진">
             {% endif %}
             
             <div class="big-post-content">
 
                <div class="big-post-content-1">
-                    <p><span>ABOUT    </span>{{ blog.body }}</p>
+                    <p><span style="font-weight:600;">ABOUT    </span>{{ blog.body }}</p>
 
                    <div class="hashtag">
                     {% for hashtag in hashtags.all %}
@@ -136,7 +136,7 @@
                        
                 </div>
                 {% empty %}
-                <div>아직 댓글이 없습니다.</div>
+                <div style="margin-top: 10px;">아직 댓글이 없습니다.</div>
             {% endfor %}
 
 

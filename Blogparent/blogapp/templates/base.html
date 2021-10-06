@@ -22,10 +22,14 @@
      <link rel="stylesheet" href="{% static 'css/create_youtube.css'%}" type="text/css">
      <link rel="stylesheet" href="{% static 'css/add_comment.css'%}" type="text/css">
      <link rel="stylesheet" href="{% static 'css/edit_comment.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/text.css'%}" type="text/css">
+
      <!--폰트어썸-->
      <script src="https://kit.fontawesome.com/1b24a1a7da.js" crossorigin="anonymous"></script> 
      <!--모달js-->
      <script src ="/static/js/modal.js" defer></script>
+     <!--텍스트 애니메이션 js-->
+     <script src ="/static/js/text.js" defer></script>
      <!-- 좋아요 관련 js -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <!--슬라이더-->
@@ -60,7 +64,7 @@
     <div class="side-header">
 
         <a class="logo" href="{% url 'home' %}">
-          <i class="fas fa-globe"></i>
+          <i class="fas fa-globe" style="margin-left:3px;"></i>
           <div style="margin-right: 25px;"><p style="text-align: center;">DMD</p>
           <p style="text-align: center;">STUDIO</p></div>
           
@@ -95,11 +99,11 @@
         </div>
 
         <div class="social-buttons">
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-google"></i>
-            <i class="fab fa-github"></i>
-            <i class="fab fa-instagram"></i>
+            <a href="https://twitter.com/home"><i class="fab fa-twitter"></i></a>
+            <a  href="https://www.facebook.com/iu.loen"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.google.com/webhp?hl=ko&sa=X&sqi=2&pjf=1&ved=0ahUKEwjNx4PD2LTzAhUI_7sIHbhpBrMQPAgI"><i class="fab fa-google"></i></a>
+            <a href="https://github.com/dy6578ekdbs"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/maru_is_big/?hl=ko"><i class="fab fa-instagram"></i></a>
         </div>
 
     </div>

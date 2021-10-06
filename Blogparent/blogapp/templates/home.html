@@ -10,37 +10,37 @@
             <!-- Full-width images with number and caption text -->
             <div class="mySlides fade">
               <div class="numbertext">1 / 6</div>
-              <img src="{% static 'img/baseimg.jpg'%}" style="width: 720px; height: 420px;">              
+              <img src="{% static 'img/base.jpg'%}" style="width: 720px; height: 420px;">              
               <div class="text">DMD STUDIO</div>
             </div>
       
             <div class="mySlides fade">
               <div class="numbertext">2 / 6</div>
-              <img src="{% static 'img/baseimg.jpg'%}" style="width: 720px; height: 420px;">              
+              <img src="{% static 'img/1.jpg'%}" style="width: 720px; height: 420px;">              
               <div class="text">DMD STUDIO</div>
             </div>
       
             <div class="mySlides fade">
               <div class="numbertext">3 / 6</div>
-              <img src="{% static 'img/baseimg.jpg'%}" style="width: 720px; height: 420px;">              
+              <img src="{% static 'img/2.jpg'%}" style="width: 720px; height: 420px;">              
               <div class="text">DMD STUDIO</div>
             </div>
       
             <div class="mySlides fade">
               <div class="numbertext">4 / 6</div>
-              <img src="{% static 'img/baseimg.jpg'%}" style="width: 720px; height: 420px;">              
+              <img src="{% static 'img/3.jpg'%}" style="width: 720px; height: 420px;">              
               <div class="text">DMD STUDIO</div>
             </div>
       
             <div class="mySlides fade">
               <div class="numbertext">5 / 6</div>
-              <img src="{% static 'img/baseimg.jpg'%}" style="width: 720px; height: 420px;">              
+              <img src="{% static 'img/4.jpg'%}" style="width: 720px; height: 420px;">              
               <div class="text">DMD STUDIO</div>
             </div>
       
             <div class="mySlides fade">
               <div class="numbertext">6 / 6</div>
-              <img src="{% static 'img/baseimg.jpg'%}" style="width: 720px; height: 420px;">              
+              <img src="{% static 'img/5.jpg'%}" style="width: 720px; height: 420px;">              
               <div class="text">DMD STUDIO</div>
             </div>
       
@@ -62,7 +62,7 @@
 
         <div class="infos">
           {%for notice in notices %}
-          <a href="{% url 'notice_board' notice.id %}">{{notice.notice_title}}{{notice.notice_pub_date}}</a>
+          <a href="{% url 'notice_board' notice.id %}">{{notice.notice_title}}</a>
           {% endfor %}
         </div>
       </div>
@@ -73,14 +73,26 @@
        </div> -->
 
       <div class="info-2">
-       <p>Archive MD Develropment</p>
-       <p>By Dayun | Incheon, Korea</p>
-       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+        <p class="typing-txt" style="display: none;">When you're dealing with a lot of videos,
+          DMD STUDIO is the answer.</p> 
+          <div class="text-box" style="margin-left: 10px;"><p class="typing"></p> </div>
+        
+
+        <div style="width: 70%; margin-left: 10px;">
+       <p style="font-size: larger; margin-top :20px;">DMD STUDIO Develropment</p>
+       <p style="margin-top: 10px; color: gray;">By Dayun | Incheon, Korea</p>
+       <p  style="margin-top: 4px; color: gray;">Hello, welcome. I'm DY, the developer of DMD STUDIO. Our service helps you deal with your video media materials and recommend them to others. Here, the video data refers to YouTube data. We made up for the shortcomings of YouTube's playlist function. I hope you can get help by using our service well. How to use the service can be helped by pressing the <how to use> button. If you have any questions for me, please contact the github account on the sidebar.</p>
+        </div>
       </div>
+
+     
+        
+      
     </div> 
 
     <!--인기글-->
-    <p class="hot-posts">Hot Posts</p>
+    <p class="hot-posts" style="font-weight: 600; font-size: larger; margin-top: 10px;">Hot Posts</p>
 
     <div class="popular-section">
 
@@ -91,7 +103,7 @@
           {% if popular_blog.cover_image %}
           <img src="{{popular_blog.cover_image.url}}" width="320" height="180" alt="사진">
           {% else %} 
-          <img src="{% static 'img/baseimg.jpg'%}" width="320" height="180" alt="사진">
+          <img src="{% static 'img/base.jpg'%}" width="320" height="180" alt="사진">
           {% endif %}
         </a>
 
@@ -116,7 +128,7 @@
               {% if blog.cover_image %}
               <img src="{{blog.cover_image.url}}" width="250" height="140" alt="사진">
               {% else %}
-              <img src="{% static 'img/baseimg.jpg'%}" width="250" height="140" alt="사진">
+              <img src="{% static 'img/base.jpg'%}" width="250" height="140" alt="사진">
               {% endif %}
             </a>
 
