@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+<div class="signup-section">  
+   <h1>Signup</h1>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+    
+</div>
+{% endblock%}
+
+    

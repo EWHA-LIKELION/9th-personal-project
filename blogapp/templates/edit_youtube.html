@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+
+<div class="edit-youtube-section"> 
+    <h1>Edit Your Video</h1>
+
+    <form action="{% url 'update_youtube' youtube.id %}" method="post">
+        
+        {% csrf_token %}
+        <p>Title : <input type="text" name="subtitle" value="{{ youtube.subtitle}}"></p>
+        <p>Text : <textarea name="body" id="" cols="30" rows="10">{{ youtube.body}}</textarea></p>
+        <p>url: <input type="text" name="url" value="{{ youtube.url}}"></p>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+    {% endblock %}

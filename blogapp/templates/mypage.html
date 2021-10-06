@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static%}
+
+    {% block content %}
+    <div class="section"> 
+        <h1>MY PAGE</h1>
+
+    <div class="profile-title">
+        <h2>User Profile</h2>
+        <!-- <a href="{% url 'edit_user_info' %}">Edit Profile</a> -->
+    </div>
+    
+    <div class="profile-box-section">
+        <a  class="profile-box" href="{% url 'edit_user_info' %}"><p class="key">id</p> <p  class="value">{{ user.username }}</p></a>
+        <a  class="profile-box" href="{% url 'edit_user_info' %}"><p class="key">nickname</p> <p  class="value">{{ user.nickname }}</p></a>
+        <a  class="profile-box" href="{% url 'edit_user_info' %}"><p class="key">gender</p> <p  class="value">{{ user.gender }}</p></a>
+        <a  class="profile-box" href="{% url 'edit_user_info' %}"><p class="key">location</p> <p  class="value">{{ user.location }}</p></a>
+    </div>
+    
+
+  
+   
+
+    <h2>My Post</h2>
+    
+    <div class="my-post-section">
+        
+        <div class="post-values">
+            <p>Title</p>
+            <p>Text</p>
+            <p>Date</p>
+        </div> 
+        
+        {% for myblog in myblogs.all %}
+        <a class="my-post-object" href="/blog/{{ myblog.id }}">
+
+            <p>{{ myblog.title }}</p>
+            <p>{{ myblog.summary }}</p>
+            <p>{{ myblog.pub_date }}</p>
+        
+        </a>
+        {% empty %}
+        <div>아직 글이 없습니다.</div>
+        {% endfor %}
+    </div>
+   
+
+    <h2>Liked Post</h2>
+    <div class="like-post-section">
+
+        <div class="like-post-values">
+            <p>Title</p>
+            <p>Text</p>
+            <p>Date</p>
+        </div> 
+
+        {% for liked_blog in liked_blogs.all %}
+            <a class="like-post-object" href="/blog/{{ liked_blog.id }}">
+                <p>{{ liked_blog.title }}</p>
+                <p>{{ liked_blog.summary }}</p>
+                <p>{{ liked_blog.pub_date }}</p>
+            </a>
+        {% empty %}
+            <div>아직 좋아요 누른 글이 없습니다.</div>
+        {% endfor %}
+    </div>
+       
+    </a>
+
+    </div>
+   
+    
+    {% endblock %}
