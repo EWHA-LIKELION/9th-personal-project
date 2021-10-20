@@ -1,101 +1,98 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--css-->
-    <link rel="stylesheet" href="{% static 'css/component.css'%}" type="text/css">
-    <!--폰트어썸-->
-    <script src="https://kit.fontawesome.com/1b24a1a7da.js" crossorigin="anonymous"></script> 
-
-    <title>Home</title>
-</head>
-<body>
-  
-
-  <div class="side-header">
-
-    <a class="logo" href="{% url 'home' %}">
-      <i class="fas fa-globe"></i>
-      <p>ARCHIVE MD</p>
-    </a>
-
-    <div class="menu-buttons">
-    <a href="{% url 'home' %}"> Home</a>
-
-      {% if not user.is_authenticated %}
-      <a href ="{% url 'login' %}">Login</a>
-      {% endif %}
-      
-      {% if user.is_authenticated %}
-      <a href ="{% url 'logout' %}">Logout</a>
-      {% endif %}
-
-      {% if not user.is_authenticated %}
-      <a href ="{% url 'register' %}">Signup</a>
-      {% endif %}
-
-      {% if user.is_authenticated %}
-      <a href="{% url 'mypage' %}">Mypage</a>
-      {% endif %}
-
-      <a href="{% url 'mypage' %}">About</a>
-      <a href="{% url 'mypage' %}">Awards</a>
-      <a href="{% url 'mypage' %}">Notice</a>
-
-      <a href="{% url 'mypage' %}">Create</a>
-
-      <a class="side-search-button" href="{% url 'video_list' %}">Search</a>
-    </div>
-
-    <div class="social-buttons">
-      <i class="fab fa-twitter"></i>
-      <i class="fab fa-facebook"></i>
-      <i class="fab fa-google"></i>
-      <i class="fab fa-github"></i>
-      <i class="fab fa-instagram"></i>
-    </div>
-  </div> <!--사이드헤더 끝-->
-    
-  <div class="container">
-
-    <div class="upper-header">
-
-      <a class="search-button" href="{% url 'video_list' %}">Search<i class="fas fa-search" style="margin-left:5px;"></i></a>
-
-      <a class="how-to-use">
-        How to use
-      </a>
-
-      <a class="write" href ="{% url 'new' %}">Create</a>
-      
-    </div> 
-
-     <!--info-section-->
+{% block content %}
     <div class="info-section">
 
       <div class="info-1">
-        <img src="{% static 'img/baseimg.jpg'%}" width="720" height="420" alt="사진">
+        <div>
+          <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 6</div>
+              <img src="{% static 'img/base.jpg'%}" style="width: 720px; height: 420px;">              
+              <div class="text">DMD STUDIO</div>
+            </div>
+      
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 6</div>
+              <img src="{% static 'img/1.jpg'%}" style="width: 720px; height: 420px;">              
+              <div class="text">DMD STUDIO</div>
+            </div>
+      
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 6</div>
+              <img src="{% static 'img/2.jpg'%}" style="width: 720px; height: 420px;">              
+              <div class="text">DMD STUDIO</div>
+            </div>
+      
+            <div class="mySlides fade">
+              <div class="numbertext">4 / 6</div>
+              <img src="{% static 'img/3.jpg'%}" style="width: 720px; height: 420px;">              
+              <div class="text">DMD STUDIO</div>
+            </div>
+      
+            <div class="mySlides fade">
+              <div class="numbertext">5 / 6</div>
+              <img src="{% static 'img/4.jpg'%}" style="width: 720px; height: 420px;">              
+              <div class="text">DMD STUDIO</div>
+            </div>
+      
+            <div class="mySlides fade">
+              <div class="numbertext">6 / 6</div>
+              <img src="{% static 'img/5.jpg'%}" style="width: 720px; height: 420px;">              
+              <div class="text">DMD STUDIO</div>
+            </div>
+      
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
+            <a class="next" onclick="moveSlides(1)">&#10095;</a>
+          </div>
+            
+          <!-- The dots/circles -->
+          <div style="text-align:center" class="dot-sction">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+          </div>
+        </div>
+
         <div class="infos">
           {%for notice in notices %}
-          <a>{{notice.notice_title}}{{notice.notice_pub_date}}</a>
+          <a href="{% url 'notice_board' notice.id %}">{{notice.notice_title}}</a>
           {% endfor %}
         </div>
       </div>
 
+      <!-- <div class="info-3">
+        <p>s</p>
+
+       </div> -->
+
       <div class="info-2">
-       <p>Devstars Web</p>
-       <p>Deverlopment</p>
-       <p>By Dayun</p>
-       <p>Incheon, Korea</p>
-       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+        <p class="typing-txt" style="display: none;">When you're dealing with a lot of videos,
+          DMD STUDIO is the answer.</p> 
+          <div class="text-box" style="margin-left: 10px;"><p class="typing"></p> </div>
+        
+
+        <div style="width: 70%; margin-left: 10px;">
+       <p style="font-size: larger; margin-top :20px;">DMD STUDIO Develropment</p>
+       <p style="margin-top: 10px; color: gray;">By Dayun | Incheon, Korea</p>
+       <p style="margin-top: 4px; color: gray;">Hello, welcome. I'm DY, the developer of DMD STUDIO. Our service helps you deal with your video media materials and recommend them to others. Here, the video data refers to YouTube data. We made up for the shortcomings of YouTube's playlist function. I hope you can get help by using our service well. How to use the service can be helped by pressing the <how to use> button. If you have any questions for me, please contact the github account on the sidebar.</p>
+        </div>
       </div>
+
+     
+        
+      
     </div> 
 
     <!--인기글-->
-    <p class="hot-posts">Hot Posts</p>
+    <p class="hot-posts" style="font-weight: 600; font-size: larger; margin-top: 10px;">Hot Posts</p>
 
     <div class="popular-section">
 
@@ -106,19 +103,18 @@
           {% if popular_blog.cover_image %}
           <img src="{{popular_blog.cover_image.url}}" width="320" height="180" alt="사진">
           {% else %} 
-          <img src="{% static 'img/baseimg.jpg'%}" width="320" height="180" alt="사진">
+          <img src="{% static 'img/base.jpg'%}" width="320" height="180" alt="사진">
           {% endif %}
         </a>
 
         <div style="display: flex;  ">
           <p style="margin: 0;">{{popular_blog.title}}</p>
         </div>
-        <p style="margin: 0;">by {{popular_blog.author}} | {{ popular_blog.like_count }}</p>
+        <p style="margin: 0;">by {{popular_blog.author}} | <i class="fas fa-heart"></i> <span style="color: rgb(223, 98, 98);">{{ popular_blog.like_count }}</span> </p>
       </div>
       {% endfor %}    
 
-    </div><!--인기글 섹션-->
-
+    </div>
     <div class="insert-box">
 
     </div>
@@ -132,7 +128,7 @@
               {% if blog.cover_image %}
               <img src="{{blog.cover_image.url}}" width="250" height="140" alt="사진">
               {% else %}
-              <img src="{% static 'img/baseimg.jpg'%}" width="250" height="140" alt="사진">
+              <img src="{% static 'img/base.jpg'%}" width="250" height="140" alt="사진">
               {% endif %}
             </a>
 
@@ -141,37 +137,10 @@
               
               </div>
               
-              <p style="margin: 0;">by {{blog.author}} | {{blog.like.count}}</p>
+              <p style="margin: 0;">by {{blog.author}} | <i class="fas fa-heart"></i> <span style="color: rgb(223, 98, 98);">{{blog.like.count}}</span></p>
           </div>
       {% endfor %}
 
     </div>
 
-
-    <footer>
-      <div class="footer-content-top">MORE INFO ABOUT MY PAGE</div>
-
-      <div class="footer-content-bottom">
-        <div>ARCHIVE MD © 2021</div>
-
-        <div class="footer-icons"> 
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-google"></i>
-          <i class="fab fa-github"></i>
-          <i class="fab fa-instagram"></i>
-        </div>
-
-        <div>BE INSPIRED. BE INSPIRING.</div>
-    </div>
-    </footer>
-      
-
-
-
-</div>
-   
-    
-    
-</body>
-</html>
+{% endblock %}

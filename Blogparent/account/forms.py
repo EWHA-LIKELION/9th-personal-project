@@ -5,10 +5,10 @@ from django.contrib.auth import get_user_model
 class RegisterForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields=['username','password1','password2','nickname','university','location']
+        fields=['username','password1','password2','nickname','gender','location']
 
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = get_user_model()
-        fields = ['username','nickname','university','location']
+        fields = ['username','nickname','gender','location']

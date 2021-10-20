@@ -2,10 +2,12 @@
 {% load static%}
 
     {% block content%}
-    <h3>댓글 달기</h3>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <button type="submit">Send</button>
-    </form>
+    <div class="add-comment-section">
+        <h1>Add comment</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     {% endblock %}

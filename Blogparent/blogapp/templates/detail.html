@@ -30,37 +30,36 @@
             {% if blog.cover_image %}
             <img src="{{blog.cover_image.url}}" width="800" height="440" alt="사진">
             {% else %} 
-            <img src="{% static 'img/baseimg.jpg'%}" width="320" height="180" alt="사진">
+            <img src="{% static 'img/base.jpg'%}" width="800" height="440" alt="사진">
             {% endif %}
             
             <div class="big-post-content">
 
                <div class="big-post-content-1">
-                   ABOUT {{ blog.body }}
+                    <p><span style="font-weight:600;">ABOUT    </span>{{ blog.body }}</p>
+
+                   <div class="hashtag">
+                    {% for hashtag in hashtags.all %}
+                    #{{ hashtag }}
+                    {% endfor %}
+                </div>
+
+                <div class="edit-buttons">
+                    {% if request.user == blog.author %}
+                    <a id="bold" href="{% url 'edit' blog.id %}">EDIT</a>
+                    <a  id="dbold" href="{% url 'delete' blog.id %}">DELETE</a>
+                    {% endif %}
+
+                    
+                </div>
                </div>
 
                <div class="big-post-content-2">
                   
-                    <div class="hashtag">
-                        {% for hashtag in hashtags.all %}
-                        #{{ hashtag }}
-                        {% endfor %}
-                    </div>
-
-                    <div class="edit-buttons">
-                        {% if request.user == blog.author %}
-                        <a href="{% url 'edit' blog.id %}">EDIT</a>
-                        <a href="{% url 'delete' blog.id %}">DELETE</a>
-                        {% endif %}
-
-                        
-                    </div>
                     
-                  
                     <div class="big-post-buttons">
-                        <div style="display: flex;"><i class="fab fa-twitter"></i>{% post_to_twitter "{{blog.author}}의 추천 영상! {{blog.title}}. ARCHIVE MD에서 바로 확인하기!" object_or_url "Twitter" %}</div>
+                        <div style="display: flex;"><i class="fab fa-twitter"></i>{% post_to_twitter "{{blog.author}}의 추천 영상! {{blog.title}}. ARCHIVE MD에서 바로 확인하기!" object_or_url "Post to Twitter" %}</div>
                         <div style="display: flex;"><i class="fab fa-facebook"></i>{% post_to_facebook "{{blog.author}}의 추천 영상! {{blog.title}}. ARCHIVE MD에서 바로 확인하기!" object_or_url "???" %}</div>
-                        <div style="display: flex;"><i class="fab fa-google"></i>{% post_to_gplus "{{blog.author}}의 추천 영상! {{blog.title}}. ARCHIVE MD에서 바로 확인하기!" object_or_url "Google+" %}</div>
                     </div>
 
                </div>
@@ -97,8 +96,8 @@
                         <p>{{ youtube.body }}</p>
         
                         {% if request.user == blog.author %}
-                        <a href="{% url 'edit_youtube' blog.id youtube.id %}">EDIT</a>
-                        <a href="{% url 'delete_youtube' blog.id youtube.id %}">DELETE</a>
+                        <a id="bold" href="{% url 'edit_youtube' blog.id youtube.id %}">EDIT</a>
+                        <a id="bold" href="{% url 'delete_youtube' blog.id youtube.id %}">DELETE</a>
                         {% endif %}
                     </div>
                 {% empty %}
@@ -106,49 +105,46 @@
                 {% endfor %}
 
         </div>
-        
-
-        
 
     </div>
 
     <div class="comment-section">
 
+        <div class="comments">
+
+            <div class="add-comment-button">
+                
+               
+    
+                <a id="bold" class="comment-button" href="{% url 'add_comment_to_post' blog.id %}">ADD COMMENT</a>
+             
+            </div>
+
+            {% for comment in blog.comments.all %}
+                <div class="comment-object">
+                        <div class="comment-info">
+                            <div id="bold">{{ comment.author_name }}</div> 
+                            <div style="width: 100px; font-size: small;">{{ comment.created_at }}</div>
+                            <div> {% if request.user == comment.author_name %}
+                                <a href="{% url 'edit_comment' blog.id comment.id %}">EDIT</a>
+                                <a href="{% url 'delete_comment' blog.id comment.id %}">DELETE</a>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="comment-text">{{ comment.comment_text }}</div>
+                       
+                </div>
+                {% empty %}
+                <div style="margin-top: 10px;">아직 댓글이 없습니다.</div>
+            {% endfor %}
+
+
+        </div>
+
     </div>
 
 
-    <div class="none">
     
-   
-
-   
-
-     
-
-
-    {% if not user.is_authenticated %}
-    <p><a href="{% url 'login' %}">로그인 후 댓글 달기</a></p>
-    {% endif %}
-    {% if user.is_authenticated %}
-    <a href="{% url 'add_comment_to_post' blog.id %}">댓글달기</a>
-    {% endif %}
-    <br>
-
-    {% for comment in blog.comments.all %}
-        <div class="comment">
-            <div>{{ comment.author_name }}</div>
-            <div>{{ comment.created_at }}</div>
-            <div>{{ comment.comment_text }}</div>
-        </div>
-        {% if request.user == comment.author_name %}
-        <ul>
-            <p><a href="{% url 'edit_comment' blog.id comment.id %}">댓글 수정</a></p>
-            <p><a href="{% url 'delete_comment' blog.id comment.id %}">댓글 삭제</a></p>
-        </ul>
-        {% endif %}
-    {% empty %}
-        <div>아직 댓글이 없습니다.</div>
-    {% endfor %}
-</div>
     {% endblock %}
     

@@ -1,0 +1,59 @@
+.search-section{
+    width: 30%;
+
+    margin: 150px auto 200px auto;
+}
+
+.input-group{
+    display: flex;
+}
+
+#input1{
+    background-color: #F1EFE9;
+    border-style: none;
+    border-bottom: solid gray 1px;
+
+
+    font-size: x-large;
+
+    margin-left: 10px;
+
+}
+
+#input2{
+    border-style: none;
+    background-color: #5C3471;
+    border-radius: 13px;    
+
+    color: white;
+
+    cursor: pointer;
+    padding: 3px 10px 3px 10px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+#input2:hover{
+    
+    box-shadow: 0px 0px 3px 2px rgba(174, 122, 202, 0.5);
+
+
+}
+    
+
+.searched-post-section{
+    margin-top: 30px;
+}
+
+.searched-post h4{
+    padding: 10px;
+    margin: 3px 0 0 0;
+
+}
+
+.searched-post h4:hover{
+    cursor: pointer;
+    background-color: rgb(224, 222, 215,0.5);
+    border-radius: 3px;
+
+}

@@ -3,16 +3,18 @@
 
 
 {% block content %}
-    <h1>글 쓰기</h1>
+
+<div class="create-section">
+    <h1>Create New List</h1>
 
 
-    <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+    <form id="new-form" action="{% url 'create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        제목: <input type="text" name="title" id="">
-        본문: <textarea name="body" id="" cols="30" rows="10"></textarea>
-        커버 이미지 : <input type="file" id="cover_image" name="cover_image" value="{{ blog.cover_image}}">
-        해시태그 : <input type="text" name="hashtags" placeholder="해시태그 ,로 구분">
-        <button type="submit">제출</button>
+        <div id="new-title-input">Title: <input type="text" name="title" ></div>
+        <div id="new-text-input">Text: <textarea name="body"  cols="30" rows="10"></textarea></div>
+        <div id="new-cover-image">Cover Image : <input type="file" name="cover_image" value="{{ blog.cover_image}}"></div>
+        <div id="new-hashtag-input" >#HashTags <input type="text" name="hashtags" placeholder="해시태그 ,로 구분"></div>
+        <button id="create-submit-button" type="submit">Submit</button>
     </form>
-    
+</div>    
 {% endblock %}

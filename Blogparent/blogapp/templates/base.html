@@ -8,19 +8,66 @@
      <!--css-->
      <link rel="stylesheet" href="{% static 'css/component.css'%}" type="text/css">
      <link rel="stylesheet" href="{% static 'css/detail.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/mypage.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/modal.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/home.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/notice_board.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/search.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/edit_user_info.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/login.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/signup.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/new.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/edit.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/edit_youtube.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/create_youtube.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/add_comment.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/edit_comment.css'%}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/text.css'%}" type="text/css">
+
      <!--폰트어썸-->
      <script src="https://kit.fontawesome.com/1b24a1a7da.js" crossorigin="anonymous"></script> 
+     <!--모달js-->
+     <script src ="/static/js/modal.js" defer></script>
+     <!--텍스트 애니메이션 js-->
+     <script src ="/static/js/text.js" defer></script>
      <!-- 좋아요 관련 js -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-     <title>Document</title>
+    <!--슬라이더-->
+    <link rel="stylesheet" href="{% static 'css/slide.css'%}" type="text/css">
+    <script src ="/static/js/slide.js" defer></script>
+    <title>Document</title>
 </head>
 <body>
+  
+  <div id="modal" class="modal-overlay" style="display: none;">
+      <div class="modal-window">
+          <div class="title">
+              <h2>How to Use?</h2>
+          </div>
+          <div class="close-area">X</div>
+          <div class="content">
+              <p>Hello, welcome to our service. Is this your first time on our website? I'll tell you how to use the site.</p>
+              <p>Please sign up first. It takes very little time, so don't worry.
+              </p>
+              <p>There is a popular video collection post on the home screen. It will be of great help to you.
+              </p>
+              <p>If you have a video you want to find, you can search by pressing the "Search" button.
+              </p>
+              <p>Press "Create" to create your own collection of videos and share them with many people.
+              </p>
+              <p>I like your writing on My Page. Check out the text you pressed.
+              </p>
+          </div>
+      </div>
+  </div>
 
     <div class="side-header">
 
         <a class="logo" href="{% url 'home' %}">
-          <i class="fas fa-globe"></i>
-          <p>ARCHIVE MD</p>
+          <i class="fas fa-globe" style="margin-left:3px;"></i>
+          <div style="margin-right: 25px;"><p style="text-align: center;">DMD</p>
+          <p style="text-align: center;">STUDIO</p></div>
+          
         </a>
     
         <div class="menu-buttons">
@@ -42,21 +89,21 @@
           <a href="{% url 'mypage' %}">Mypage</a>
           {% endif %}
     
-          <a href="{% url 'mypage' %}">About</a>
-          <a href="{% url 'mypage' %}">Awards</a>
-          <a href="{% url 'mypage' %}">Notice</a>
+          <a href="{% url 'notice_board' 1 %}">About</a>
+          
+          <a href="{% url 'notice_board' 1 %}">Notice</a>
     
-          <a href="{% url 'mypage' %}">Create</a>
+          <a href="{% url 'new' %}">Create</a>
     
           <a class="side-search-button" href="{% url 'video_list' %}">Search</a>
         </div>
 
         <div class="social-buttons">
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-google"></i>
-            <i class="fab fa-github"></i>
-            <i class="fab fa-instagram"></i>
+            <a href="https://twitter.com/home"><i class="fab fa-twitter"></i></a>
+            <a  href="https://www.facebook.com/iu.loen"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.google.com/webhp?hl=ko&sa=X&sqi=2&pjf=1&ved=0ahUKEwjNx4PD2LTzAhUI_7sIHbhpBrMQPAgI"><i class="fab fa-google"></i></a>
+            <a href="https://github.com/dy6578ekdbs"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/maru_is_big/?hl=ko"><i class="fab fa-instagram"></i></a>
         </div>
 
     </div>
@@ -64,10 +111,11 @@
         <div class="container">
 
             <div class="upper-header">
+             
+              
+              <a class="search-button" href="{% url 'video_list' %}">Search<i class="fas fa-search" style="margin-left:10px;"></i></a>
         
-              <a class="search-button" href="{% url 'video_list' %}">Search<i class="fas fa-search" style="margin-left:5px;"></i></a>
-        
-              <a class="how-to-use">
+              <a id="btn-modal" class="how-to-use">
                 How to use
               </a>
         
@@ -103,8 +151,9 @@
         
         
         </div>
-
+        
         <script type="text/javascript">
+       
             function post_like(id) {
                 console.log("hi")
                 $.ajax({
@@ -120,6 +169,8 @@
                     }
                 })
             }
+
         </script>
+     
 </body>
 </html>

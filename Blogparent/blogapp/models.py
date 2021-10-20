@@ -17,13 +17,13 @@ class Blog(models.Model): #큰 글
     body =models.TextField()
     hashtag = models.ManyToManyField(HashTag) #해시태그
     like = models.ManyToManyField(CustomUser, related_name='likes',blank=True)
-    cover_image= models.ImageField(upload_to='images/', blank=True)
+    cover_image= models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return self.title
     
     def summary(self):
-        return self.body[:100]
+        return self.body[:30]
 
 class Youtube(models.Model): #하위 유튜브 목록
     post = models.ForeignKey(Blog, related_name='youtubes', on_delete=models.CASCADE)
